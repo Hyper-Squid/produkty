@@ -1,0 +1,31 @@
+sklad = {
+    "jablko": (0.5, "ovocie", 1000),
+    "banan": (0.3, "ovocie", 800),
+    "mrkva": (0.2, "zelenina", 500),  
+    "cokolada": (1.5, "sladkosti", 200),
+    "limitka": (10, "sladkosti", 1),
+    "mlieko": (0.8, "mliecne vyrobky", 300),
+    "chleba": (1.2, "pecivo", 150)
+}
+
+kosik = []
+
+ceklova_cena = 0
+while True:
+    print("Co chcete pridat do kosika? (napiste 'koniec' pre ukoncenie)")
+    nazov = input().strip().lower()
+
+    if nazov == "koniec":
+        break
+
+    if nazov in sklad:
+        cena, kategoria, mnozstvo = sklad[nazov]
+        if mnozstvo > 0:
+            kosik.append(nazov)
+            sklad[nazov] = (cena, kategoria, mnozstvo - 1)
+            ceklova_cena += cena
+            print(f"{nazov} bol pridany do kosika.")
+        else:
+            print(f"{nazov} je momentalne vypredany.")
+    else:
+        print("Tato polozka nie je v sklade.")
