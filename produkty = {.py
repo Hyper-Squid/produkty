@@ -42,6 +42,13 @@ for produkt in kosik:
 
 print("Celková cena:", celkova_cena, "€")
 
+print("Naskenujte kartu clubcard")
+if input().lower() == "ano":
+    celkova_cena = celkova_cena * 0.9  # Aplikuj 10% zľavu
+    print("Karta clubcard bola akcepovaná!")
+if input().lower() == "nie":
+    print("Karta clubcard nebola akcepovaná!")
+
 kupon = input("Mas kupon? (ano/nie): ").lower()
 if kupon == "ano":
     celkova_cena = celkova_cena * 0.8  # Aplikuj 20% zľavu
@@ -53,4 +60,3 @@ if input().lower() == "ano":
     print("Mozes uplatnit iba jeden kupon na nakup.")
 
 print("Celková cena:", round(celkova_cena, 2), "€")
-
