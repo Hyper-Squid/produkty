@@ -2,12 +2,12 @@ produkty = ["jablko", "banan", "mrkva", "zemiak", "mlieko"]
 ceny = [0.50, 0.45, 0.30, 0.25, 1.20]
 druhy = ["ovocie", "ovocie", "zelenina", "zelenina", "mliečne"]
 sklad = [5, 3, 4, 6, 2]
-kupon = [5]
+
 kosik = []
 celkova_cena = 0
 
 while True:
-    print("===OBCHOD===")
+    print("\n=== OBCHOD ===")
 
     for i in range(len(produkty)):
         if sklad[i] == 0:
@@ -35,28 +35,36 @@ while True:
 
         print("Produkt bol pridaný do košíka!")
 
+
 print("\n--- KOŠÍK ---")
 
 for produkt in kosik:
     print("-", produkt)
 
-print("Celková cena:", celkova_cena, "€")
+print("Cena pred zľavou:", round(celkova_cena, 2), "€")
 
-print("Naskenujte kartu clubcard")
-if input().lower() == "ano":
-    celkova_cena = celkova_cena * 0.9  # Aplikuj 10% zľavu
-    print("Karta clubcard bola akcepovaná!")
-if input().lower() == "nie":
-    print("Karta clubcard nebola akcepovaná!")
 
-kupon = input("Mas kupon? (ano/nie): ").lower()
+# CLUBCARD
+clubcard = input("\nChcete naskenovať Clubcard? (ano/nie): ").lower()
+
+if clubcard == "ano":
+    celkova_cena = celkova_cena * 0.9
+    print("Clubcard bola naskenovaná! Uplatnená zľava 10 %.")
+else:
+    print("Clubcard nebola použitá.")
+
+
+# KUPÓN
+kupon = input("\nMáš kupón? (ano/nie): ").lower()
+
 if kupon == "ano":
-    celkova_cena = celkova_cena * 0.8  # Aplikuj 20% zľavu
-    print("Kupon bol uplatnený!")
-print("Celková cena po uplatnení kupónu:", celkova_cena, "€")
+    celkova_cena = celkova_cena * 0.8
+    print("Kupón bol uplatnený! Zľava 20 %.")
 
-print("Mas este jeden kupon? (ano/nie):")
-if input().lower() == "ano":
-    print("Mozes uplatnit iba jeden kupon na nakup.")
+    # DRUHÝ KUPÓN
+    druhy_kupon = input("Máš ešte jeden kupón? (ano/nie): ").lower()
 
-print("Celková cena:", round(celkova_cena, 2), "€")
+    if druhy_kupon == "ano":
+        print("Môžeš použiť iba jeden kupón na nákup.")
+
+print("\nCelková cena:", round(celkova_cena, 2), "€")
