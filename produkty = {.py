@@ -67,15 +67,13 @@ if vyber_platby == "2":
 if vyber_platby == "3":
     kupon = input("Chcete použiť kupón? (ano/nie): ").lower()
                          
-if kupon == "ano":
-    ceelkova_cena = celkova_cena * 0.8
-    print("Kupón bol použitý! Uplatnená zľava 20 %.")
-
-    # DRUHÝ KUPÓN
-    druhy_kupon = input("Máš ešte jeden kupón? (ano/nie): ").lower()
-
-    if druhy_kupon == "ano":
-        print("Môžeš použiť iba jeden kupón na nákup.")
+def pouzit_kupon(celkova_cena):
+    if kupon == "ano":
+        celkova_cena = celkova_cena * 0.8
+        print("Kupón bol použitý! Uplatnená zľava 20 %.")
+    else:
+        print("Kupón nebol použitý.")
+    return celkova_cena
 
 print("\nCelková cena:", round(celkova_cena, 2), "€")
 
