@@ -53,13 +53,23 @@ if clubcard == "ano":
 else:
     print("Clubcard nebola použitá.")
 
+print("Vyberte sposob platby:")
+vyber_platby = input("1. Hotovosť\n2. Karta\n3. Kupon\nZadajte číslo platby: ")
+if vyber_platby == "1":
+    print("Platba hotovosťou bola zvolená.")
 
-# KUPÓN
-kupon = input("\nMáš kupón? (ano/nie): ").lower()
+if vyber_platby == "2":
+    print("Platba kartou bola zvolená.")
 
+    if vyber_platby == "3":
+        print("Platba kupónom bola zvolená.")
+
+if vyber_platby == "3":
+    kupon = input("Chcete použiť kupón? (ano/nie): ").lower()
+                         
 if kupon == "ano":
-    celkova_cena = celkova_cena * 0.8
-    print("Kupón bol uplatnený! Zľava 20 %.")
+    ceelkova_cena = celkova_cena * 0.8
+    print("Kupón bol použitý! Uplatnená zľava 20 %.")
 
     # DRUHÝ KUPÓN
     druhy_kupon = input("Máš ešte jeden kupón? (ano/nie): ").lower()
@@ -68,3 +78,5 @@ if kupon == "ano":
         print("Môžeš použiť iba jeden kupón na nákup.")
 
 print("\nCelková cena:", round(celkova_cena, 2), "€")
+
+print("\nĎakujeme za nákup!")
